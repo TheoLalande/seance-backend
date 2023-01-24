@@ -1,0 +1,1 @@
+CREATE TABLE posts (title VARCHAR(150), content TEXT, categorie VARCHAR(50), created_at DATETIME) 
