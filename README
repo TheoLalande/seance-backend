@@ -1,0 +1,5 @@
+Le Back utilise express en typescript
+Nodemon
+
+Faire npm run dev pour lancer le serveur
+Le serveur se lance sur le port 3000
