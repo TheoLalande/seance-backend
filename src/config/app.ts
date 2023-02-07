@@ -1,16 +1,20 @@
 import * as express from "express";
 import { Application, Request, Response } from "express";
-import { myRouter } from "../routes/router";
-// import * as bodyParser from "body-parser";
+import { usersRoute } from "../routes/Users/users";
+import { configDatabaseRoute } from "../routes/configDatabase";
+import db from '../data/data'
+
 
 const app: Application = express();
+db.on
+
+
 app.use(express.json());
-// app.use(bodyParser.json({ limit: "50mb", type: "application/vnd.api+json" }));
-// app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello mec");
 });
 
-app.use("/todos", myRouter);
+app.use("/todos", usersRoute);
+app.use("/database", configDatabaseRoute)
 
 export default app;

@@ -1,1 +1,1 @@
-CREATE TABLE posts (title VARCHAR(150), content TEXT, categorie VARCHAR(50), created_at DATETIME) 
+ db.run('CREATE TABLE posts (title VARCHAR(150), content TEXT)') Crée la table Posts avec deux colonnes

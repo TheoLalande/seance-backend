@@ -1,10 +1,13 @@
 import { database } from "../database";
 import { Request, Response } from "express";
+import db from '../data/data'
 
-export async function getAll(req: Request, res: Response) {
+export default async function getAll(req: Request, res: Response) {
   try {
-    const data = await database.todos;
-    return res.json(data);
+    await db.all('SELECT * FROM Users', (err, data) =>{
+      return res.json(data)
+    })
+    
   } catch (error) {
     console.log(error);
   }
