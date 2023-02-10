@@ -1,21 +1,20 @@
 import * as express from "express";
 import { Application, Request, Response } from "express";
 import { usersRoute } from "../routes/Users/users";
-import * as cors from 'cors';
+import * as cors from "cors";
 import { configDatabaseRoute } from "../routes/configDatabase";
-import db from '../data/data'
-
+import db from "../data/data";
 
 const app: Application = express();
-db.on
+db.on;
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 app.get("/", (req: Request, res: Response) => {
-  res.send("Hello mec");
+  res.send("Helloa mec");
 });
 
 app.use("/todos", usersRoute);
-app.use("/database", configDatabaseRoute)
+app.use("/database", configDatabaseRoute);
 
 export default app;
