@@ -4,6 +4,7 @@ import { usersRoute } from "../routes/Users/users";
 import * as cors from "cors";
 import { configDatabaseRoute } from "../routes/configDatabase";
 import db from "../data/data";
+import { isAuthRoute } from "../routes/isAuth";
 
 const app: Application = express();
 db.on;
@@ -14,7 +15,8 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Helloa mec");
 });
 
-app.use("/todos", usersRoute);
+app.use("/isAuth", isAuthRoute); // MiddleWare
+app.use("/user", usersRoute);
 app.use("/database", configDatabaseRoute);
 
 export default app;

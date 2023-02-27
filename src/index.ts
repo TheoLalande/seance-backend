@@ -5,4 +5,3 @@ app.listen(3005, () => {
     "Serveur Eexpress With TS is runing on port 3000, Ping with http://localhost:3005/ for test"
   );
 });
-#0e0123
