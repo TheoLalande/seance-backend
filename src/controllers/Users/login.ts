@@ -14,7 +14,7 @@ export default async function login(req: Request, res: Response) {
           return res.status(401).json(false);
         } else {
           const token: jwt = jwt.sign({ userId: data.userId }, PRI_KEY_PATH, {
-            expiresIn: 3600,
+            expiresIn: 3600, // 1h
             algorithm: "RS256",
           });
           return res.status(200).json(token);
