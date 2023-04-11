@@ -28,6 +28,3 @@ export default async function postInscription(req: Request, res: Response) {
         return console.log(error);
     }
 }
-
-
-
