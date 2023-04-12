@@ -1,1 +1,4 @@
 .env
+mspr.sqlite
+.vscode
+node_modules
