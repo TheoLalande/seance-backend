@@ -10,6 +10,7 @@ export default async function postAddAnnonce(req: Request, res: Response) {
       plantCount,
       annonceDescription,
       location,
+      annonceTitle,
     } = req.body;
     if (
       ownerId &&
@@ -17,7 +18,8 @@ export default async function postAddAnnonce(req: Request, res: Response) {
       endDate &&
       plantCount &&
       annonceDescription &&
-      location
+      location &&
+      annonceTitle
     ) {
       db.run(
         "INSERT INTO Annonces(ownerId, startDate, endDate, plantCount, annonceDescription, location) VALUES(?,?,?,?, ?, ?)",
