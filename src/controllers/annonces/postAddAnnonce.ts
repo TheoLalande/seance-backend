@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import db from "../../data/data";
 
-export default async function postAddPlant(req: Request, res: Response) {
+export default async function postAddAnnonce(req: Request, res: Response) {
   try {
     const {
       ownerId,
