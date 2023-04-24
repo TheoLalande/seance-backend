@@ -10,3 +10,4 @@ plantsRoute.route("/plantsByUser").get(getPlantsByUser);
 plantsRoute.route("/plantsByAnnonce").get(getPlantsByAnnonce);
 plantsRoute.route("/addPlant").post(postAddPlant);
 plantsRoute.route("/delPlant").post(delPlantById);
+plantsRoute.route("/delPlant").post(delPlantById);
