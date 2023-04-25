@@ -11,6 +11,7 @@ export default async function postAddAnnonce(req: Request, res: Response) {
       annonceDescription,
       location,
       annonceTitle,
+      annoncePicture,
     } = req.body;
     if (
       ownerId &&
@@ -19,11 +20,21 @@ export default async function postAddAnnonce(req: Request, res: Response) {
       plantCount &&
       annonceDescription &&
       location &&
-      annonceTitle
+      annonceTitle &&
+      annoncePicture
     ) {
       db.run(
-        "INSERT INTO Annonces(ownerId, startDate, endDate, plantCount, annonceDescription, location) VALUES(?,?,?,?, ?, ?)",
-        [ownerId, startDate, endDate, plantCount, annonceDescription, location]
+        "INSERT INTO Annonces(ownerId, startDate, endDate,annonceTitle, plantCount, annonceDescription, location, annoncePicture) VALUES(?,?,?,?,?,?,?,?)",
+        [
+          ownerId,
+          startDate,
+          endDate,
+          annonceTitle,
+          plantCount,
+          annonceDescription,
+          location,
+          annoncePicture,
+        ]
       );
       return res
         .status(200)
