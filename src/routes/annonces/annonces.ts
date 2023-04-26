@@ -1,9 +1,9 @@
 import { Router, Request, Response } from "express";
-import getAnnoncesByUser from "../../controllers/annonces/getAnnoncesByUser";
-import postAddAnnonce from "../../controllers/annonces/postAddAnnonce";
-import getAllAnnonces from "../../controllers/annonces/getAllAnnonces";
-import delAnnonceById from "../../controllers/annonces/delAnnonceById";
-import getAnnoncesById from "../../controllers/annonces/getAnnoncesById";
+import { getAnnoncesByUser } from "../../controllers/annonces/getAnnoncesByUser";
+import { postAddAnnonce } from "../../controllers/annonces/postAddAnnonce";
+import { getAllAnnonces } from "../../controllers/annonces/getAllAnnonces";
+import { delAnnonceById } from "../../controllers/annonces/delAnnonceById";
+import { getAnnoncesById } from "../../controllers/annonces/getAnnoncesById";
 
 export const annoncesRoute = Router();
 
