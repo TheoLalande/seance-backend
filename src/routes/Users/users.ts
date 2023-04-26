@@ -1,9 +1,9 @@
 import { Router, Request, Response } from "express";
-import getAll from "../../controllers/users/getAll";
-import login from "../../controllers/users/login";
-import { postInfo } from "../../controllers/users/postInfo";
-import getUserById from "../../controllers/users/getUserById";
-import postInscription from "../../controllers/users/postInscription";
+import getAll from "../../controllers/Users/getAll";
+import login from "../../controllers/Users/login";
+import { postInfo } from "../../controllers/Users/postInfo";
+import getUserById from "../../controllers/Users/getUserById";
+import postInscription from "../../controllers/Users/postInscription";
 
 export const usersRoute = Router();
 

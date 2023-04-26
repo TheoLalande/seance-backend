@@ -1,6 +1,5 @@
 import * as express from "express";
 import { Application, Request, Response } from "express";
-import { usersRoute } from "../routes/users/users";
 import { plantsRoute } from "../routes/plants/plants";
 import { annoncesRoute } from "../routes/annonces/annonces";
 import * as cors from "cors";
@@ -18,7 +17,6 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use("/isAuth", isAuthRoute); // MiddleWare
-app.use("/user", usersRoute);
 app.use("/plant", plantsRoute);
 app.use("/annonce", annoncesRoute);
 app.use("/database", configDatabaseRoute);
