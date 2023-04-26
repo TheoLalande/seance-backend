@@ -21,5 +21,6 @@ app.use("/isAuth", isAuthRoute); // MiddleWare
 app.use("/plant", plantsRoute);
 app.use("/annonce", annoncesRoute);
 app.use("/database", configDatabaseRoute);
+app.use("/user", usersRoute);
 
 export default app;
