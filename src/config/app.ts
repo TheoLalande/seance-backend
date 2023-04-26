@@ -6,6 +6,7 @@ import * as cors from "cors";
 import { configDatabaseRoute } from "../routes/configDatabase";
 import db from "../data/data";
 import { isAuthRoute } from "../routes/isAuth";
+import { usersRoute } from "../routes/users/users";
 
 const app: Application = express();
 db.on;
