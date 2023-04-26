@@ -18,7 +18,6 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use("/isAuth", isAuthRoute); // MiddleWare
-app.use("/user", usersRoute);
 app.use("/plant", plantsRoute);
 app.use("/annonce", annoncesRoute);
 app.use("/database", configDatabaseRoute);
