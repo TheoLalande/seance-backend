@@ -1,9 +1,7 @@
 import { test, expect, it, describe } from "vitest";
 import { getAllAnnonces } from "../../controllers/annonces/getAllAnnonces";
-import { delAnnonceById } from "../../controllers/annonces/delAnnonceById";
 import { getAnnoncesById } from "../../controllers/annonces/getAnnoncesById";
-import { getAnnoncesByUser } from "../../controllers/annonces/getAnnoncesByUser";
-import { postAddAnnonce } from "../../controllers/annonces/postAddAnnonce";
+
 import { AnnonceType } from "../../types/AnnonceType";
 const fetch = require("node-fetch");
 let announceToCheckIfSame;
