@@ -4,13 +4,16 @@ import db from "../../data/data";
 
 export default async function getAllAnnonces(req: Request, res: Response) {
   try {
-    await db.all("SELECT * FROM Annonces", (err, data) => {
-      if (data[0] === undefined)
-        return res
-          .status(404)
-          .json({ status: 404, message: "No annonce found for this user" });
-      else return res.status(200).json(data);
-    });
+    await db.all(
+      "SELECT Annonces.*, Users.userPseudo FROM Annonces LEFT JOIN Users ON Users.userId = Annonces.ownerId",
+      (err, data) => {
+        if (data[0] === undefined)
+          return res
+            .status(404)
+            .json({ status: 404, message: "No annonce found for this user" });
+        else return res.status(200).json(data);
+      }
+    );
   } catch (error) {
     console.log(error);
   }
