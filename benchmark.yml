@@ -1,0 +1,116 @@
+#Commande pour lancer les benchmark **************     artillery run benchmark.yml  ***************
+
+#Benchmark lancement du BackEnd : 5,59s
+#Benchmark lancement du FrontEnd : 1min 19,84s
+config:
+  target: "http://localhost:3005"
+  phases:
+    - duration: 60
+      arrivalRate: 50
+scenarios:
+  #Test de nos controllers / API
+  #Test de getAllAnnonces
+  - name: "Get All Annonces"
+    flow:
+      - get:
+          url: "/annonce/allAnnonces"
+  #Test de getAnnonceById
+  - name: "Get Annonce By Id"
+    flow:
+      - get:
+          url: "/annonce/annoncesById?ID=1"
+  #Test de POST addAnnonce
+  - name: "post add annonce"
+    flow:
+      - post:
+          url: "/annonce/addAnnonce"
+          json:
+            ownerId: "1"
+            startDate: "test"
+            endDate: "test"
+            plantCount: "2"
+            annonceDescription: "test"
+            location: "test"
+            annonceTitle: "test"
+            annoncePicture: "test"
+  #Test de getAnnonceByUser
+
+  - name: "Get annonce by User"
+    flow:
+      - get:
+          url: "/annonce/annoncesByUser?ownerId=1"
+
+  #Test de getAllAdvice
+
+  - name: "get Advice"
+    flow:
+      - get:
+          url: "/plant/adviceByPlantId?plantId=1"
+
+  #Test de getPlantsByUser
+
+  - name: "get plants by user"
+    flow:
+      - get:
+          url: "/plant/plantsByUser?ownerId=1"
+
+  #Test de getPlantsByAnnonce
+
+  - name: "get plant by annonce"
+    flow:
+      - get:
+          url: "/plant/plantsByAnnonce?annonceId=0"
+
+  #Test de getPlantsByAnnonceAndUser
+
+  - name: "get plant by annonce and user"
+    flow:
+      - get:
+          url: "/plant/plantsByAnnonceAndUser?annonceId=0&ownerId=1"
+
+  #Test de POST addplant
+
+  - name: "post add plant"
+    flow:
+      - post:
+          url: "/plant/addPlant"
+          json:
+            ownerId: "1"
+            plantName: "test"
+            plantDescription: "test"
+            plantPicture: "test"
+
+  #Test de POST addAdvice
+
+  - name: "post add advice"
+    flow:
+      - post:
+          url: "/plant/addAdvice"
+          json:
+            plantId: "1"
+            advice: "test"
+
+  #Test de getAllUsers
+
+  - name: "get all users"
+    flow:
+      - get:
+          url: "/user/"
+
+  #Test de getUserById
+
+  - name: "get user by id"
+    flow:
+      - get:
+          url: "/user/id?userId=1"
+
+  #Test de POST adduser
+
+  - name: "post add user"
+    flow:
+      - post:
+          url: "/user/inscription"
+          json:
+            userPseudo: "test2"
+            userPassword: "test3"
+            userMail: "test223@test.com"
