@@ -19,9 +19,7 @@ export default async function postAddAnnonce(req: Request, res: Response) {
       endDate &&
       plantCount &&
       annonceDescription &&
-      location &&
-      annonceTitle &&
-      annoncePicture
+      location
     ) {
       db.run(
         "INSERT INTO Annonces(ownerId, startDate, endDate,annonceTitle, plantCount, annonceDescription, location, annoncePicture) VALUES(?,?,?,?,?,?,?,?)",
@@ -32,8 +30,8 @@ export default async function postAddAnnonce(req: Request, res: Response) {
           annonceTitle,
           plantCount,
           annonceDescription,
-          location,
-          annoncePicture,
+          location || "",
+          annoncePicture || "",
         ]
       );
       return res
