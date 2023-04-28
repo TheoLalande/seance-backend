@@ -4,9 +4,10 @@ import db from "../../data/data";
 
 export default async function getUserById(req: Request, res: Response) {
   try {
+    const { userId } = req.query;
     await db.all(
       "SELECT * FROM Users WHERE userId = ?",
-      [req.query.id],
+      [userId],
       (err, data) => {
         return res.json(data);
       }
