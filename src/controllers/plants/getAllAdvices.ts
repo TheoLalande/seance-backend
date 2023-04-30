@@ -3,7 +3,6 @@ import db from "../../data/data";
 
 export async function getAllAdvice(req: Request, res: Response) {
   try {
-    const { plantId } = req.query;
     await db.all(
       "SELECT Plants.plantName, Plants.plantDescription, Plants.plantPicture, PlantsAdvice.advice FROM Plants LEFT JOIN PlantsAdvice ON Plants.ID = PlantsAdvice.plantId",
       (err, data) => {
