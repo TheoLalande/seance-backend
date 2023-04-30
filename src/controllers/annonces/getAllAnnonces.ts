@@ -2,7 +2,7 @@ import { database } from "../../database";
 import { Request, Response } from "express";
 import db from "../../data/data";
 
-export default async function getAllAnnonces(req: Request, res: Response) {
+export async function getAllAnnonces(req: any, res: any) {
   try {
     await db.all(
       "SELECT Annonces.*, Users.userPseudo FROM Annonces LEFT JOIN Users ON Users.userId = Annonces.ownerId",

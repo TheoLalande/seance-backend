@@ -2,7 +2,7 @@ import { database } from "../../database";
 import { Request, Response } from "express";
 import db from "../../data/data";
 
-export default async function getAnnoncesByUser(req: Request, res: Response) {
+export async function getAnnoncesByUser(req: Request, res: Response) {
   try {
     const { ownerId } = req.query;
     await db.all(

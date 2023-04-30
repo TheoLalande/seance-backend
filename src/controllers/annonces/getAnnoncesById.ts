@@ -2,7 +2,7 @@ import { database } from "../../database";
 import { Request, Response } from "express";
 import db from "../../data/data";
 
-export default async function getAnnoncesById(req: Request, res: Response) {
+export async function getAnnoncesById(req: Request, res: Response) {
   try {
     const { ID } = req.query;
     await db.all("SELECT * FROM Annonces WHERE ID = ?", [ID], (err, data) => {
