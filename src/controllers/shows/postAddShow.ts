@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import db from "../../data/data";
-
-export async function postShow(req: Request, res: Response) {
+import { getAllShows } from "./getAllShow";
+import checkIfShowIsValid from "./utils";
+export async function postAddShow(req: Request, res: Response) {
+  let isShowValid = true
   try {
-    console.log("IN FUNCTION");
-
     const {
       movie,
       ticketLeft,
@@ -12,17 +12,24 @@ export async function postShow(req: Request, res: Response) {
       date,
       time,
       language,
+      duration,
     } = req.body;
+    isShowValid = await checkIfShowIsValid(room, date, time, duration)
+
     if (
       movie &&
       ticketLeft &&
       room &&
       date &&
       time &&
-      language
+      language &&
+      duration
     ) {
+      if (!isShowValid) {
+        return res.status(400).json({ status: 400, message: "La salle n'est pas disponible à ces dates la" });
+      }
       db.run(
-        "INSERT INTO shows(movie, ticketLeft, room, date, time, language) VALUES(?,?,?,?,?,?)",
+        "INSERT INTO shows(movie, ticketLeft, room, date, time, language, duration) VALUES(?,?,?,?,?,?,?)",
         [
           movie,
           ticketLeft,
@@ -30,6 +37,7 @@ export async function postShow(req: Request, res: Response) {
           date,
           time,
           language,
+          duration
         ]
       );
       return res

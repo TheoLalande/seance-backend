@@ -1,6 +1,5 @@
 import app from "./config/app";
-app.listen(3005, () => {
-  console.log(
-    "Serveur Eexpress With TS is runing on port 3000, Ping with http://localhost:3005/ for test"
-  );
+const server: number = 3002
+app.listen(server, "10.34.4.159", () => {
+  console.log(`Le serveur est lancé sur http://10.34.4.159:${server} le wifi local`);
 });

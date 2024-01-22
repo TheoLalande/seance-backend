@@ -1,10 +1,12 @@
 {
-    "compilerOptions": {
-        "sourceMap": true,
-        "target": "ES5",
-        "module": "CommonJS"
-    },
-    "include": [
-        "src/**/*.ts"
-    ]
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "ES5",
+    "module": "CommonJS"
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/controllers/shows/utils/isShowValid.js",
+    "src/utils/checkIfShowIsValid.js"
+  ]
 }
