@@ -3,7 +3,7 @@ import db from "../../data/data";
 import checkIfShowIsValid from "./utils";
 
 export async function postUpdateShow(req: Request, res: Response) {
-  let isShowValid = true
+  // let isShowValid = true
 
   try {
     const {
@@ -16,11 +16,11 @@ export async function postUpdateShow(req: Request, res: Response) {
       language,
       duration
     } = req.body;
-    const isShowValid = await checkIfShowIsValid(room, date, time, duration)
+    // const isShowValid = await checkIfShowIsValid(room, date, time, duration)
     if (id && movie && ticketLeft && room && date && time && language) {
-      if (!isShowValid) {
-        return res.status(400).json({ status: 400, message: "La salle n'est pas disponible à ces dates la" });
-      }
+      // if (!isShowValid) {
+      //   return res.status(400).json({ status: 400, message: "La salle n'est pas disponible à ces dates la" });
+      // }
       const sqlQuery = `
         UPDATE shows 
         SET movie='${movie}', ticketLeft=${ticketLeft}, room='${room}', 
