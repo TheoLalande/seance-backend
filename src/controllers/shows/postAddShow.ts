@@ -3,7 +3,7 @@ import db from "../../data/data";
 import { getAllShows } from "./getAllShow";
 import checkIfShowIsValid from "./utils";
 export async function postAddShow(req: Request, res: Response) {
-  // let isShowValid = true
+  let isShowValid = true
   try {
     const {
       movie,
@@ -15,7 +15,7 @@ export async function postAddShow(req: Request, res: Response) {
       duration,
       price
     } = req.body;
-    // isShowValid = await checkIfShowIsValid(room, date, time, duration)
+    isShowValid = await checkIfShowIsValid(room, date, time, duration)
 
     if (
       movie &&
@@ -27,11 +27,11 @@ export async function postAddShow(req: Request, res: Response) {
       duration &&
       price
     ) {
-      // if (!isShowValid) {
-      //   return res.status(400).json({ status: 400, message: "La salle n'est pas disponible à ces dates la" });
-      // }
+      if (!isShowValid) {
+        return res.status(400).json({ status: 400, message: "La salle n'est pas disponible à ces dates la" });
+      }
       db.run(
-        "INSERT INTO shows(movie, ticketLeft, room, date, time, language, duration) VALUES(?,?,?,?,?,?,?)",
+        "INSERT INTO shows(movie, ticketLeft, room, date, time, language, duration, price) VALUES(?,?,?,?,?,?,?, ?)",
         [
           movie,
           ticketLeft,
