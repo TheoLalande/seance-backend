@@ -31,7 +31,7 @@ export async function postAddShow(req: Request, res: Response) {
         return res.status(400).json({ status: 400, message: "La salle n'est pas disponible à ces dates la" });
       }
       db.run(
-        "INSERT INTO shows(movie, ticketLeft, room, date, time, language, duration, price) VALUES(?,?,?,?,?,?,?, ?)",
+        "INSERT INTO shows(movie, ticketLeft, room, date, time, language, duration, price) VALUES(?,?,?,?,?,?,?,?)",
         [
           movie,
           ticketLeft,

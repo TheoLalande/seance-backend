@@ -26,7 +26,6 @@ function formatDate(time, date) {
   const minutes = time.slice(3, 5);
   const [y, m, d] = date.split("-");
   let isoDate = new Date(y, m - 1, d, hour, minutes);
-  isoDate = addHours(isoDate, 1);
   return isoDate;
 }
 
