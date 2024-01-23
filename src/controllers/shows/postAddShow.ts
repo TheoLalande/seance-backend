@@ -13,6 +13,7 @@ export async function postAddShow(req: Request, res: Response) {
       time,
       language,
       duration,
+      price
     } = req.body;
     // isShowValid = await checkIfShowIsValid(room, date, time, duration)
 
@@ -23,7 +24,8 @@ export async function postAddShow(req: Request, res: Response) {
       date &&
       time &&
       language &&
-      duration
+      duration &&
+      price
     ) {
       // if (!isShowValid) {
       //   return res.status(400).json({ status: 400, message: "La salle n'est pas disponible à ces dates la" });
@@ -37,7 +39,8 @@ export async function postAddShow(req: Request, res: Response) {
           date,
           time,
           language,
-          duration
+          duration,
+          price
         ]
       );
       return res

@@ -14,7 +14,8 @@ export async function postUpdateShow(req: Request, res: Response) {
       date,
       time,
       language,
-      duration
+      duration,
+      price
     } = req.body;
     // const isShowValid = await checkIfShowIsValid(room, date, time, duration)
     if (id && movie && ticketLeft && room && date && time && language) {
@@ -24,7 +25,7 @@ export async function postUpdateShow(req: Request, res: Response) {
       const sqlQuery = `
         UPDATE shows 
         SET movie='${movie}', ticketLeft=${ticketLeft}, room='${room}', 
-        date='${date}', time='${time}', language='${language}', duration='${duration}'
+        date='${date}', time='${time}', language='${language}', duration='${duration}', price='${price}'
         WHERE ID=${id};
       `;
       db.run(sqlQuery, function (err) {
