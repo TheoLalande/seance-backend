@@ -3,8 +3,8 @@ import db from "../../data/data";
 
 export async function getDeleteShow(req: Request, res: Response) {
   try {
-    const { movie, time, date } = req.query;
-    await db.run("DELETE FROM shows WHERE movie = ? AND time = ? AND date = ?", [movie, time, date], (err, data) => {
+    const { id } = req.query;
+    await db.run("DELETE FROM shows WHERE id= ?", [id], (err, data) => {
       return res
         .status(200)
         .json({ status: 200, message: "Show deleted" });
