@@ -13,6 +13,6 @@ showsRoute.route("/getAllShows").get(getAllShows);
 showsRoute.route("/getShowById").get(getShowById);
 showsRoute.route("/getShowByName").get(getShowByName);
 showsRoute.route("/postUpdateShow").post(postUpdateShow);
-showsRoute.route("/getDeleteShow").get(getDeleteShow);
+showsRoute.route("/getDeleteShow").delete(getDeleteShow);
 
 
