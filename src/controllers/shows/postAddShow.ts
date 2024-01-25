@@ -15,7 +15,7 @@ export async function postAddShow(req: Request, res: Response) {
       duration,
       price
     } = req.body;
-    isShowValid = await checkIfShowIsValid(room, date, time, duration)
+    // isShowValid = await checkIfShowIsValid(room, date, time, duration)
 
     if (
       movie &&

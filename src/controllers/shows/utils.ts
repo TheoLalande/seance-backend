@@ -1,14 +1,16 @@
-import { addHours, addMinutes, subMinutes } from "date-fns";
+import { addHours, addMinutes, getTime, subMinutes } from "date-fns";
 import db from "../../data/data";
 
 export default async function checkIfShowIsValid(room, date, time, duration) {
   try {
-    const startTime = subMinutes(formatDate(time, date), 20);
-    const endTime = addMinutes(startTime, duration + 40);
+    const startTime = getTime(subMinutes(formatDate(time, date), 20));
+    const endTime = getTime(addMinutes(startTime, duration + 40));
     const showSameDateAndRoom: any = await getShowWithSameDateAndRoom(room, date);
     let isShowValid: boolean = true;
     for (const show of showSameDateAndRoom) {
-      const { showStartTime, showEndTime } = getShowStartTimeEndTime(show);
+      let { showStartTime, showEndTime } = getShowStartTimeEndTime(show);
+      showStartTime = getTime(showStartTime);
+      showEndTime = getTime(showEndTime);
       if (startTime <= showEndTime || endTime >= showStartTime) {
         isShowValid = false;
         return isShowValid
